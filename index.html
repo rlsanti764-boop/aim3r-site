@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>AIM3R</title>
-</head>
-<body>
-  <h1>🤖 AIM3R</h1>
-  <p>Meu bot está online!</p>
-</body>
-</html>
+<div>
+  <h2>Chat Bot</h2>
+
+  <div id="chat"></div>
+
+  <input id="msg" placeholder="Escreve aqui..." />
+  <button onclick="sendMessage()">Enviar</button>
+</div>
+
+<script>
+async function sendMessage() {
+  const msg = document.getElementById("msg").value;
+
+  const res = await fetch("http://localhost:3000/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ message: msg }),
+  });
+
+  const data = await res.json();
+
+  document.getElementById("chat").innerHTML +=
+    "<p><b>Tu:</b> " + msg + "</p>" +
+    "<p><b>Bot:</b> " + data.reply + "</p>";
+}
+</script>
