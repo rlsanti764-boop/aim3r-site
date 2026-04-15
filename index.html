@@ -1,38 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GIF HUB PRO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🔥 GIF HUB PRO</h1>
+
 <div class="tabs">
   <button onclick="openTab('chat')">🤖 Bot</button>
-  button onclick="openTab('comandos')">📜 Comandos</button>
+  <button onclick="openTab('gif')">🎞️ GIFs</button>
+  <button onclick="openTab('cmd')">📜 Comandos</button>
 </div>
 
 <div id="chat" class="tab">
-  <h2>Chat Bot</h2>
-  <p>Aqui vai o teu bot</p>
+  <h2>Chat IA</h2>
+  <input id="msg" placeholder="Escreve..." />
+  <button onclick="send()">Enviar</button>
+  <div id="output"></div>
 </div>
 
-<div id="comandos" class="tab" style="display:none;">
+<div id="gif" class="tab" style="display:none;">
+  <h2>GIFs</h2>
+  <input id="gifSearch" placeholder="Pesquisar GIF" />
+  <button onclick="searchGif()">Procurar</button>
+  <div id="gifResult"></div>
+</div>
+
+<div id="cmd" class="tab" style="display:none;">
   <h2>Comandos</h2>
-  <ul>
-    <li>/gif - manda GIF</li>
-    <li>/help - ajuda</li>
-    <li>/chat - falar com bot</li>
-  </ul>
+  <p>/gif - pesquisa GIF</p>
+  <p>/chat - fala com IA</p>
 </div>
-<script>
-function openTab(tabName) {
-  const tabs = document.querySelectorAll(".tab");
 
-  tabs.forEach(t => t.style.display = "none");
-
-  document.getElementById(tabName).style.display = "block";
-}
-</script>
-<style>
-.tabs button {
-  padding: 10px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.tab {
-  margin-top: 20px;
-}
-</style>
+<script src="app.js"></script>
+</body>
+</html> 
